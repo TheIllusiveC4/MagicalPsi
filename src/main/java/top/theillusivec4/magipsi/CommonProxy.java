@@ -1,4 +1,4 @@
-package wiiv.magipsi.proxy;
+package top.theillusivec4.magipsi;
 
 public class CommonProxy {
 

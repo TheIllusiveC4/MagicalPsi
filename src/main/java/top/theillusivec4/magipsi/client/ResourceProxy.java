@@ -1,4 +1,4 @@
-package wiiv.magipsi.client;	
+package top.theillusivec4.magipsi.client;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +13,7 @@ import net.minecraft.client.resources.AbstractResourcePack;
 import net.minecraft.client.resources.IResourcePack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
-import wiiv.magipsi.MagicalPsi;
+import top.theillusivec4.magipsi.MagicalPsi;
 
 public class ResourceProxy extends AbstractResourcePack {
 

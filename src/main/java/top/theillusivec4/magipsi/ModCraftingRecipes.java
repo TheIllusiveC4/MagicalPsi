@@ -1,4 +1,4 @@
-package wiiv.magipsi;
+package top.theillusivec4.magipsi;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;

@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[31,)"
+issueTrackerURL="https://github.com/TheIllusiveC4/MagicalPsi/issues"
+logoFile="${mod_icon}"
+[[mods]]
+modId="${mod_id}"
+version="${version}"
+displayName="${mod_name}"
+displayURL="${mod_url}"
+authors="${mod_author}"
+description='''
+${mod_description}
+'''
+[[dependencies.magipsi]]
+    modId="forge"
+    mandatory=true
+    versionRange="[31.2.0,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.magipsi]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2,1.16)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.magipsi]]
+    modId="psi"
+    mandatory=true
+    versionRange="[r1.2,)"
+    ordering="NONE"
+    side="BOTH"

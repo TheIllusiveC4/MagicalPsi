@@ -8,7 +8,7 @@
  *
  * File Created @ [20/02/2016, 22:41:34 (GMT)]
  */
-package wiiv.magipsi.client;
+package top.theillusivec4.magipsi.client;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

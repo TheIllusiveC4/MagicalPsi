@@ -1,9 +1,9 @@
-package wiiv.magipsi.proxy;
+package top.theillusivec4.magipsi;
 
 import vazkii.psi.api.spell.SpellParam;
 import vazkii.psi.common.item.ItemExosuitSensor;
 import vazkii.psi.common.item.armor.ItemPsimetalArmor;
-import wiiv.magipsi.client.ModelFocusingPlate;
+import top.theillusivec4.magipsi.client.ModelFocusingPlate;
 
 public class ClientProxy extends CommonProxy {
 

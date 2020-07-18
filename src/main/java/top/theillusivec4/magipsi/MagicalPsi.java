@@ -1,4 +1,4 @@
-package wiiv.magipsi;
+package top.theillusivec4.magipsi;
 
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -7,7 +7,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import wiiv.magipsi.proxy.CommonProxy;
 
 @Mod(modid = MagicalPsi.MOD_ID, name = MagicalPsi.MOD_NAME, version = MagicalPsi.VERSION, dependencies = MagicalPsi.DEPENDENCIES)
 public class MagicalPsi {
@@ -17,8 +16,8 @@ public class MagicalPsi {
 	public static final String VERSION = "1.3";
 	public static final String DEPENDENCIES = "required-after:psi";
 
-	public static final String COMMON_PROXY = "wiiv.magipsi.proxy.CommonProxy";
-	public static final String CLIENT_PROXY = "wiiv.magipsi.proxy.ClientProxy";
+	public static final String COMMON_PROXY = "top.theillusivec4.magipsi.proxy.CommonProxy";
+	public static final String CLIENT_PROXY = "top.theillusivec4.magipsi.proxy.ClientProxy";
 	
 	public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 	
@@ -41,7 +40,7 @@ public class MagicalPsi {
 		if(FMLCommonHandler.instance().getSide().isServer())
 			return;
 
-		String classname = "wiiv.magipsi.client.ResourceProxy";
+		String classname = "top.theillusivec4.magipsi.client.ResourceProxy";
 		try {
 			Class<?> clazz = Class.forName(classname);
 			clazz.getMethod("init").invoke(null);
