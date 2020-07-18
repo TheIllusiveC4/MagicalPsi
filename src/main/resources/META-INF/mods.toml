@@ -27,5 +27,5 @@ ${mod_description}
     modId="psi"
     mandatory=true
     versionRange="[r1.2,)"
-    ordering="NONE"
+    ordering="AFTER"
     side="BOTH"

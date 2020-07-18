@@ -1,53 +1,65 @@
 package top.theillusivec4.magipsi;
 
-import net.minecraftforge.fml.common.FMLCommonHandler;
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.Item;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import vazkii.psi.api.spell.SpellParam;
+import vazkii.psi.common.item.ItemExosuitSensor;
+import vazkii.psi.common.item.armor.ItemPsimetalArmor;
+import vazkii.psi.common.item.base.ModItems;
 
-@Mod(modid = MagicalPsi.MOD_ID, name = MagicalPsi.MOD_NAME, version = MagicalPsi.VERSION, dependencies = MagicalPsi.DEPENDENCIES)
+@Mod(MagicalPsi.MODID)
 public class MagicalPsi {
 
-	public static final String MOD_ID = "magipsi";
-	public static final String MOD_NAME = "Magical Psi";
-	public static final String VERSION = "1.3";
-	public static final String DEPENDENCIES = "required-after:psi";
+  public static final String MODID = "magipsi";
+  public static final Logger LOGGER = LogManager.getLogger();
 
-	public static final String COMMON_PROXY = "top.theillusivec4.magipsi.proxy.CommonProxy";
-	public static final String CLIENT_PROXY = "top.theillusivec4.magipsi.proxy.ClientProxy";
-	
-	public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
-	
-	@SidedProxy(serverSide = COMMON_PROXY, clientSide = CLIENT_PROXY)
-	public static CommonProxy proxy;
-	
-	public MagicalPsi() {
-		ensureResourceOrder();
-	}
+  public MagicalPsi() {
+    IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> MagicalPsiExecutor::new);
+    eventBus.addListener(this::clientSetup);
+  }
 
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		ModCraftingRecipes.init();
-		proxy.replacePsiAssets();
-	}
+  private void clientSetup(final FMLClientSetupEvent evt) {
+    SpellParam.RED = 0xFF003F;
+    SpellParam.GREEN = 0x3FFF00;
+    SpellParam.BLUE = 0x007FFF;
+    SpellParam.PURPLE = 0xBF7FFF;
+    SpellParam.CYAN = 0x00FFBF;
+    SpellParam.YELLOW = 0xFFBF00; // For entities
+    SpellParam.GRAY = 0x3F3F3F; // For connectors
 
-	// Construction is called before resources are loaded and before
-	// proxies are assigned, so we have to reflect around
-	private void ensureResourceOrder() {
-		if(FMLCommonHandler.instance().getSide().isServer())
-			return;
+    ItemExosuitSensor.defaultColor = 0xEFBFFF;
+    ItemExosuitSensor.fireColor = 0xFF1F00;
+    ItemExosuitSensor.lightColor = 0xFFDF00;
+    ItemExosuitSensor.lowHealthColor = 0x7FFF00;
+    ItemExosuitSensor.underwaterColor = 0x003FFF;
 
-		String classname = "top.theillusivec4.magipsi.client.ResourceProxy";
-		try {
-			Class<?> clazz = Class.forName(classname);
-			clazz.getMethod("init").invoke(null);
-		} catch(Throwable e) {
-			LOGGER.error("Could not hook Resource Proxy.", e);
-		}
-	}
+    try {
+      Field model = ItemPsimetalArmor.class.getDeclaredField("model");
+      model.setAccessible(true);
+      Map<EquipmentSlotType, Item> armor = new HashMap<>();
+      armor.put(EquipmentSlotType.FEET, ModItems.psimetalExosuitBoots);
+      armor.put(EquipmentSlotType.CHEST, ModItems.psimetalExosuitChestplate);
+      armor.put(EquipmentSlotType.LEGS, ModItems.psimetalExosuitLeggings);
+      armor.put(EquipmentSlotType.HEAD, ModItems.psimetalExosuitHelmet);
 
+      for (Map.Entry<EquipmentSlotType, Item> entry : armor.entrySet()) {
+        model.set(entry.getValue(), MagicalPsiExecutor.getArmorModel(entry.getKey()));
+      }
+    } catch (NoSuchFieldException | IllegalAccessException e) {
+      MagicalPsi.LOGGER.error("Reflection error in models!");
+    }
+  }
 }
 
