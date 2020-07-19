@@ -136,7 +136,7 @@ public class MagipsiRecipeProvider extends RecipeProvider {
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadSocketLarge).key('W', ItemTags.LOGS)
         .key('D', Tags.Items.DUSTS_GLOWSTONE).key('I', ModTags.INGOT_PSIMETAL).patternLine("DIW")
         .patternLine("IW ").patternLine("W  ").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, Psi.location("card_socket_large"));
+        .build(consumer, Psi.location("cad_socket_large"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadSocketTransmissive).key('W', ItemTags.LOGS)
         .key('D', Tags.Items.DUSTS_REDSTONE).key('I', ModTags.INGOT_PSIMETAL)
