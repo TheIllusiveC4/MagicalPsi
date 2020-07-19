@@ -27,7 +27,7 @@ public class MagicalPsi {
 
   public MagicalPsi() {
     IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-    DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> MagicalPsiExecutor::new);
+    DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> MagipsiExecutor::new);
     eventBus.addListener(this::clientSetup);
   }
 
@@ -56,7 +56,7 @@ public class MagicalPsi {
       armor.put(EquipmentSlotType.HEAD, ModItems.psimetalExosuitHelmet);
 
       for (Map.Entry<EquipmentSlotType, Item> entry : armor.entrySet()) {
-        model.set(entry.getValue(), MagicalPsiExecutor.getArmorModel(entry.getKey()));
+        model.set(entry.getValue(), MagipsiExecutor.getArmorModel(entry.getKey()));
       }
     } catch (NoSuchFieldException | IllegalAccessException e) {
       MagicalPsi.LOGGER.error("Reflection error in models!");

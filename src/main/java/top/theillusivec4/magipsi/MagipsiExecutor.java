@@ -17,20 +17,20 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
 import top.theillusivec4.magipsi.client.FocusingPlateModel;
-import top.theillusivec4.magipsi.client.MagicalPsiProxyPack;
+import top.theillusivec4.magipsi.client.MagipsiProxyPack;
 
-public class MagicalPsiExecutor {
+public class MagipsiExecutor {
 
   private static ResourcePack resourcePack;
 
   @SuppressWarnings("ConstantConditions")
-  public MagicalPsiExecutor() {
+  public MagipsiExecutor() {
     List<ModFileInfo> modFiles = ModList.get().getModFiles();
 
     for (ModFileInfo modFileInfo : modFiles) {
 
       if (modFileInfo.getMods().get(0).getModId().equals(MagicalPsi.MODID)) {
-        resourcePack = new MagicalPsiProxyPack(modFileInfo.getFile());
+        resourcePack = new MagipsiProxyPack(modFileInfo.getFile());
         break;
       }
     }
