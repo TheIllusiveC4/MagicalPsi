@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "magipsi:vector_rule"
+    ]
+  },
+  "criteria": {
+    "has_psidust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "psi:psidust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "magipsi:vector_rule"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_psidust",
+      "has_the_recipe"
+    ]
+  ]
+}

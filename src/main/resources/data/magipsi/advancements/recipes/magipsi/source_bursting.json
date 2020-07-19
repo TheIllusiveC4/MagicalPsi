@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "magipsi:source_bursting"
+    ]
+  },
+  "criteria": {
+    "has_psigem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:gems/psigem"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "magipsi:source_bursting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_psigem",
+      "has_the_recipe"
+    ]
+  ]
+}

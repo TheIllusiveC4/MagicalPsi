@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I  ",
+    "DPD",
+    "  I"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/gold"
+    },
+    "D": {
+      "tag": "forge:dusts/glowstone"
+    },
+    "P": {
+      "tag": "forge:ingots/psimetal"
+    }
+  },
+  "result": {
+    "item": "psi:cad_core_conductive"
+  }
+}

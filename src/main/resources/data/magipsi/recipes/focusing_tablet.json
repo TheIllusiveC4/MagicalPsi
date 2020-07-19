@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WRW",
+    "PGP",
+    "WIW"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:logs"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    },
+    "G": {
+      "tag": "forge:glass/colorless"
+    },
+    "I": {
+      "tag": "forge:ingots/psimetal"
+    }
+  },
+  "result": {
+    "item": "psi:exosuit_controller"
+  }
+}

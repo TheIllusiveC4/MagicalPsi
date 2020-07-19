@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I  ",
+    "DPD",
+    "  I"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "D": {
+      "tag": "forge:dusts/redstone"
+    },
+    "P": {
+      "tag": "psi:psidust"
+    }
+  },
+  "result": {
+    "item": "psi:cad_core_basic"
+  }
+}

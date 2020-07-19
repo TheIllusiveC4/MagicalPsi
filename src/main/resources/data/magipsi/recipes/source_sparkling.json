@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I",
+    "D",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/gold"
+    },
+    "D": {
+      "tag": "forge:ingots/psimetal"
+    }
+  },
+  "result": {
+    "item": "psi:cad_battery_extended"
+  }
+}

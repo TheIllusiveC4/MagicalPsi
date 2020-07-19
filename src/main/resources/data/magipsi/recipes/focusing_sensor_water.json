@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "IMR",
+    " R "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/psimetal"
+    },
+    "R": {
+      "tag": "forge:ingots/gold"
+    },
+    "M": {
+      "tag": "forge:gems/prismarine"
+    }
+  },
+  "result": {
+    "item": "psi:exosuit_sensor_water"
+  }
+}

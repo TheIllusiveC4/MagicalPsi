@@ -16,13 +16,14 @@ import net.minecraft.util.LazyValue;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
-import top.theillusivec4.magipsi.client.MagicalPsiProxyPack;
 import top.theillusivec4.magipsi.client.FocusingPlateModel;
+import top.theillusivec4.magipsi.client.MagicalPsiProxyPack;
 
 public class MagicalPsiExecutor {
 
   private static ResourcePack resourcePack;
 
+  @SuppressWarnings("ConstantConditions")
   public MagicalPsiExecutor() {
     List<ModFileInfo> modFiles = ModList.get().getModFiles();
 
@@ -34,22 +35,26 @@ public class MagicalPsiExecutor {
       }
     }
 
-    ResourcePackList<ClientResourcePackInfo> resourcePackList = Minecraft.getInstance()
-        .getResourcePackList();
+    Minecraft minecraft = Minecraft.getInstance();
 
-    resourcePackList.addPackFinder(new IPackFinder() {
-      @Override
-      @SuppressWarnings("unchecked")
-      public <T extends ResourcePackInfo> void addPackInfosToMap(
-          @Nonnull Map<String, T> packNameToInfo,
-          @Nonnull ResourcePackInfo.IFactory<T> packInfoFactory) {
-        T pack = (T) new ClientResourcePackInfo(MagicalPsi.MODID, true, () -> resourcePack,
-            new StringTextComponent(resourcePack.getName()),
-            new StringTextComponent(resourcePack.getName()), PackCompatibility.COMPATIBLE,
-            ResourcePackInfo.Priority.TOP, true, null, true);
-        packNameToInfo.put(MagicalPsi.MODID, pack);
-      }
-    });
+    if (minecraft != null) {
+      ResourcePackList<ClientResourcePackInfo> resourcePackList = Minecraft.getInstance()
+          .getResourcePackList();
+
+      resourcePackList.addPackFinder(new IPackFinder() {
+        @Override
+        @SuppressWarnings("unchecked")
+        public <T extends ResourcePackInfo> void addPackInfosToMap(
+            @Nonnull Map<String, T> packNameToInfo,
+            @Nonnull ResourcePackInfo.IFactory<T> packInfoFactory) {
+          T pack = (T) new ClientResourcePackInfo(MagicalPsi.MODID, true, () -> resourcePack,
+              new StringTextComponent(resourcePack.getName()),
+              new StringTextComponent(resourcePack.getName()), PackCompatibility.COMPATIBLE,
+              ResourcePackInfo.Priority.TOP, true, null, true);
+          packNameToInfo.put(MagicalPsi.MODID, pack);
+        }
+      });
+    }
   }
 
   public static LazyValue<BipedModel<?>> getArmorModel(EquipmentSlotType slot) {

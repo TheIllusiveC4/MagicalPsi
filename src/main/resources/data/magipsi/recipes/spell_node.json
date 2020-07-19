@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:logs"
+    },
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "tag": "psi:psidust"
+    }
+  ],
+  "result": {
+    "item": "psi:spell_bullet"
+  }
+}

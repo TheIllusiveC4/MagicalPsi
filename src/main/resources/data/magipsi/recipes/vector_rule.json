@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "D",
+    "W",
+    "I"
+  ],
+  "key": {
+    "D": {
+      "tag": "psi:psidust"
+    },
+    "W": {
+      "tag": "minecraft:logs"
+    },
+    "I": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "result": {
+    "item": "psi:vector_ruler"
+  }
+}

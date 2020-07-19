@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DIW",
+    "IW ",
+    "W  "
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:logs"
+    },
+    "D": {
+      "tag": "forge:dusts/glowstone"
+    },
+    "I": {
+      "tag": "forge:ingots/psimetal"
+    }
+  },
+  "result": {
+    "item": "psi:cad_socket_large"
+  }
+}

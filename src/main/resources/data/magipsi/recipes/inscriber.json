@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WMW",
+    "WDW",
+    "G G"
+  ],
+  "key": {
+    "G": {
+      "tag": "forge:ingots/gold"
+    },
+    "M": {
+      "item": "minecraft:map"
+    },
+    "W": {
+      "tag": "minecraft:logs"
+    },
+    "D": {
+      "tag": "psi:psidust"
+    }
+  },
+  "result": {
+    "item": "psi:programmer"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DIW",
+    "IG ",
+    "W  "
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:logs"
+    },
+    "D": {
+      "tag": "forge:dusts/redstone"
+    },
+    "I": {
+      "tag": "forge:ingots/psimetal"
+    },
+    "G": {
+      "tag": "forge:gems/psigem"
+    }
+  },
+  "result": {
+    "item": "psi:cad_socket_transmissive"
+  }
+}

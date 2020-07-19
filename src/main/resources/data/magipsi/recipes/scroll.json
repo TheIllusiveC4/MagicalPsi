@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WIW",
+    "PRP",
+    "PIP"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:logs"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "I": {
+      "tag": "forge:ingots/psimetal"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "result": {
+    "item": "psi:spell_drive"
+  }
+}

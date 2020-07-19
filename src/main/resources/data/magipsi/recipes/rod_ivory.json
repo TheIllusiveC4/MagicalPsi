@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I  ",
+    "IWI",
+    "  I"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/ivory_psimetal"
+    },
+    "W": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "psi:cad_assembly_ivory_psimetal"
+  }
+}

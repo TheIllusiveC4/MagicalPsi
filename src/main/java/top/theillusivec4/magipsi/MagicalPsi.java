@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -60,6 +61,10 @@ public class MagicalPsi {
     } catch (NoSuchFieldException | IllegalAccessException e) {
       MagicalPsi.LOGGER.error("Reflection error in models!");
     }
+  }
+
+  public static ResourceLocation location(String path) {
+    return new ResourceLocation(MagicalPsi.MODID, path);
   }
 }
 
