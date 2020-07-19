@@ -10,26 +10,22 @@
  * If not, see <https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
  */
 
-package top.theillusivec4.magipsi;
+package top.theillusivec4.magipsi.client.proxy;
 
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Nonnull;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.resources.ClientResourcePackInfo;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.resources.IPackFinder;
 import net.minecraft.resources.PackCompatibility;
 import net.minecraft.resources.ResourcePack;
 import net.minecraft.resources.ResourcePackInfo;
 import net.minecraft.resources.ResourcePackList;
-import net.minecraft.util.LazyValue;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
-import top.theillusivec4.magipsi.client.FocusingPlateModel;
-import top.theillusivec4.magipsi.client.MagipsiProxyPack;
+import top.theillusivec4.magipsi.MagicalPsi;
 
 public class MagipsiExecutor {
 
@@ -68,9 +64,5 @@ public class MagipsiExecutor {
         }
       });
     }
-  }
-
-  public static LazyValue<BipedModel<?>> getArmorModel(EquipmentSlotType slot) {
-    return new LazyValue<>(() -> new FocusingPlateModel(slot));
   }
 }

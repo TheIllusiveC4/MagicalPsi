@@ -10,7 +10,7 @@
  * If not, see <https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
  */
 
-package top.theillusivec4.magipsi.client;
+package top.theillusivec4.magipsi.client.proxy;
 
 import net.minecraftforge.fml.loading.moddiscovery.ModFile;
 import net.minecraftforge.fml.packs.ModFileResourcePack;

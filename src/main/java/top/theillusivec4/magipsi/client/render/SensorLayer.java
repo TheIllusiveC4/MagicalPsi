@@ -10,7 +10,7 @@
  * If not, see <https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
  */
 
-package top.theillusivec4.magipsi.client;
+package top.theillusivec4.magipsi.client.render;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
