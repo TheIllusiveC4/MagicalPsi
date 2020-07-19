@@ -62,9 +62,5 @@ public class MagicalPsi {
       MagicalPsi.LOGGER.error("Reflection error in models!");
     }
   }
-
-  public static ResourceLocation location(String path) {
-    return new ResourceLocation(MagicalPsi.MODID, path);
-  }
 }
 

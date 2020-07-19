@@ -18,9 +18,10 @@ import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
+import net.minecraft.util.Tuple;
 import net.minecraftforge.common.Tags;
-import top.theillusivec4.magipsi.MagicalPsi;
 import top.theillusivec4.magipsi.common.MagipsiBlocks;
+import vazkii.psi.common.Psi;
 import vazkii.psi.common.block.base.ModBlocks;
 import vazkii.psi.common.item.base.ModItems;
 import vazkii.psi.common.lib.ModTags;
@@ -46,347 +47,340 @@ public class MagipsiRecipeProvider extends RecipeProvider {
     ShapedRecipeBuilder.shapedRecipe(MagipsiBlocks.CONSTRUCTOR).key('G', Tags.Items.INGOTS_GOLD)
         .key('W', ItemTags.LOGS).key('P', Blocks.PISTON).patternLine("GWG").patternLine("WPW")
         .patternLine(" G ").addCriterion("has_gold", hasGold)
-        .build(consumer, MagicalPsi.location("constructor"));
+        .build(consumer, Psi.location("assembler"));
 
     ShapedRecipeBuilder.shapedRecipe(MagipsiBlocks.INSCRIBER).key('G', Tags.Items.INGOTS_GOLD)
         .key('M', Items.MAP).key('W', ItemTags.LOGS).key('D', ModTags.PSIDUST).patternLine("WMW")
         .patternLine("WDW").patternLine("G G").addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("inscriber"));
+        .build(consumer, Psi.location("programmer"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.ebonyPsimetal).key('S', ModTags.EBONY_SUBSTANCE)
         .key('I', ModTags.INGOT_PSIMETAL).patternLine("SSS").patternLine("SIS").patternLine("SSS")
         .addCriterion("has_ebony_substance", hasEbonySubstance)
-        .build(consumer, MagicalPsi.location("psimetal_ebony"));
+        .build(consumer, Psi.location("ebony_psimetal"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.ivoryPsimetal).key('S', ModTags.IVORY_SUBSTANCE)
         .key('I', ModTags.INGOT_PSIMETAL).patternLine("SSS").patternLine("SIS").patternLine("SSS")
         .addCriterion("has_ivory_substance", hasIvorySubstance)
-        .build(consumer, MagicalPsi.location("psimetal_ivory"));
+        .build(consumer, Psi.location("ivory_psimetal"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadAssemblyIron).key('I', Tags.Items.INGOTS_IRON)
         .key('W', ItemTags.LOGS).patternLine("I  ").patternLine("IWI").patternLine("  I")
-        .addCriterion("has_iron", hasIron).build(consumer, MagicalPsi.location("rod_iron"));
+        .addCriterion("has_iron", hasIron).build(consumer, Psi.location("cad_assembly_iron"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadAssemblyGold).key('I', Tags.Items.INGOTS_GOLD)
         .key('W', ItemTags.LOGS).patternLine("I  ").patternLine("IWI").patternLine("  I")
-        .addCriterion("has_gold", hasGold).build(consumer, MagicalPsi.location("rod_gold"));
+        .addCriterion("has_gold", hasGold).build(consumer, Psi.location("cad_assembly_gold"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadAssemblyPsimetal).key('I', ModTags.INGOT_PSIMETAL)
         .key('W', ItemTags.LOGS).patternLine("I  ").patternLine("IWI").patternLine("  I")
         .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("rod_psimetal"));
+        .build(consumer, Psi.location("cad_assembly_psimetal"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadAssemblyEbony)
         .key('I', ModTags.INGOT_EBONY_PSIMETAL).key('W', ItemTags.LOGS).patternLine("I  ")
         .patternLine("IWI").patternLine("  I").addCriterion("has_ebony_psimetal", hasEbonyPsimetal)
-        .build(consumer, MagicalPsi.location("rod_ebony"));
+        .build(consumer, Psi.location("cad_assembly_ebony"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadAssemblyIvory)
         .key('I', ModTags.INGOT_IVORY_PSIMETAL).key('W', ItemTags.LOGS).patternLine("I  ")
         .patternLine("IWI").patternLine("  I").addCriterion("has_ivory_psimetal", hasIvoryPsimetal)
-        .build(consumer, MagicalPsi.location("rod_ivory"));
+        .build(consumer, Psi.location("cad_assembly_ivory"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadCoreBasic).key('I', Tags.Items.INGOTS_IRON)
         .key('D', Tags.Items.DUSTS_REDSTONE).key('P', ModTags.PSIDUST).patternLine("I  ")
         .patternLine("DPD").patternLine("  I").addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("crux_basic"));
+        .build(consumer, Psi.location("cad_core_basic"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadCoreOverclocked).key('I', Tags.Items.INGOTS_GOLD)
         .key('D', Tags.Items.DUSTS_REDSTONE).key('P', ModTags.INGOT_PSIMETAL).patternLine("I  ")
         .patternLine("DPD").patternLine("  I").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("crux_quick"));
+        .build(consumer, Psi.location("cad_core_overclocked"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadCoreConductive).key('I', Tags.Items.INGOTS_GOLD)
         .key('D', Tags.Items.DUSTS_GLOWSTONE).key('P', ModTags.INGOT_PSIMETAL).patternLine("I  ")
         .patternLine("DPD").patternLine("  I").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("crux_bright"));
+        .build(consumer, Psi.location("cad_core_conductive"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadCoreHyperClocked).key('I', Tags.Items.INGOTS_GOLD)
         .key('D', Tags.Items.DUSTS_REDSTONE).key('P', ModTags.GEM_PSIGEM).patternLine("I  ")
         .patternLine("DPD").patternLine("  I").addCriterion("has_psigem", hasPsigem)
-        .build(consumer, MagicalPsi.location("crux_swift"));
+        .build(consumer, Psi.location("cad_core_hyperclocked"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadCoreRadiative).key('I', Tags.Items.INGOTS_GOLD)
         .key('D', Tags.Items.DUSTS_GLOWSTONE).key('P', ModTags.GEM_PSIGEM).patternLine("I  ")
         .patternLine("DPD").patternLine("  I").addCriterion("has_psigem", hasPsigem)
-        .build(consumer, MagicalPsi.location("crux_radiant"));
+        .build(consumer, Psi.location("cad_core_radiative"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadSocketBasic).key('W', ItemTags.LOGS)
         .key('D', ModTags.PSIDUST).patternLine("DW").patternLine("W ")
-        .addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("notch_basic"));
+        .addCriterion("has_psidust", hasPsidust).build(consumer, Psi.location("cad_socket_basic"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadSocketSignaling).key('W', ItemTags.LOGS)
         .key('D', Tags.Items.DUSTS_REDSTONE).key('I', ModTags.INGOT_PSIMETAL).patternLine("DIW")
         .patternLine("IW ").patternLine("W  ").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("notch_flashing"));
+        .build(consumer, Psi.location("cad_socket_signaling"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadSocketLarge).key('W', ItemTags.LOGS)
         .key('D', Tags.Items.DUSTS_GLOWSTONE).key('I', ModTags.INGOT_PSIMETAL).patternLine("DIW")
         .patternLine("IW ").patternLine("W  ").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("notch_large"));
+        .build(consumer, Psi.location("card_socket_large"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadSocketTransmissive).key('W', ItemTags.LOGS)
         .key('D', Tags.Items.DUSTS_REDSTONE).key('I', ModTags.INGOT_PSIMETAL)
         .key('G', ModTags.GEM_PSIGEM).patternLine("DIW").patternLine("IG ").patternLine("W  ")
         .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("notch_beaming"));
+        .build(consumer, Psi.location("cad_socket_transmissive"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadSocketHuge).key('W', ItemTags.LOGS)
         .key('D', Tags.Items.DUSTS_GLOWSTONE).key('I', ModTags.INGOT_PSIMETAL)
         .key('G', ModTags.GEM_PSIGEM).patternLine("DIW").patternLine("IG ").patternLine("W  ")
-        .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("notch_major"));
+        .addCriterion("has_psimetal", hasPsimetal).build(consumer, Psi.location("cad_socket_huge"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadBatteryBasic).key('I', Tags.Items.INGOTS_GOLD)
         .key('D', ModTags.PSIDUST).patternLine("I").patternLine("D").patternLine("I")
-        .addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("source_basic"));
+        .addCriterion("has_psidust", hasPsidust).build(consumer, Psi.location("cad_battery_basic"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadBatteryExtended).key('I', Tags.Items.INGOTS_GOLD)
         .key('D', ModTags.INGOT_PSIMETAL).patternLine("I").patternLine("D").patternLine("I")
         .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("source_sparkling"));
+        .build(consumer, Psi.location("cad_battery_extended"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadBatteryUltradense).key('I', Tags.Items.INGOTS_GOLD)
         .key('D', ModTags.GEM_PSIGEM).patternLine("I").patternLine("D").patternLine("I")
         .addCriterion("has_psigem", hasPsigem)
-        .build(consumer, MagicalPsi.location("source_bursting"));
+        .build(consumer, Psi.location("cad_battery_ultradense"));
 
-    Map<Item, Tag<Item>> dyes = new HashMap<>();
-    dyes.put(ModItems.cadColorizerWhite, Tags.Items.DYES_WHITE);
-    dyes.put(ModItems.cadColorizerOrange, Tags.Items.DYES_ORANGE);
-    dyes.put(ModItems.cadColorizerMagenta, Tags.Items.DYES_MAGENTA);
-    dyes.put(ModItems.cadColorizerLightBlue, Tags.Items.DYES_LIGHT_BLUE);
-    dyes.put(ModItems.cadColorizerYellow, Tags.Items.DYES_YELLOW);
-    dyes.put(ModItems.cadColorizerLime, Tags.Items.DYES_LIME);
-    dyes.put(ModItems.cadColorizerPink, Tags.Items.DYES_PINK);
-    dyes.put(ModItems.cadColorizerGray, Tags.Items.DYES_GRAY);
-    dyes.put(ModItems.cadColorizerLightGray, Tags.Items.DYES_LIGHT_GRAY);
-    dyes.put(ModItems.cadColorizerCyan, Tags.Items.DYES_CYAN);
-    dyes.put(ModItems.cadColorizerPurple, Tags.Items.DYES_PURPLE);
-    dyes.put(ModItems.cadColorizerBlue, Tags.Items.DYES_BLUE);
-    dyes.put(ModItems.cadColorizerBrown, Tags.Items.DYES_BROWN);
-    dyes.put(ModItems.cadColorizerGreen, Tags.Items.DYES_GREEN);
-    dyes.put(ModItems.cadColorizerRed, Tags.Items.DYES_RED);
-    dyes.put(ModItems.cadColorizerBlack, Tags.Items.DYES_BLACK);
-    dyes.put(ModItems.cadColorizerRainbow, Tags.Items.GEMS_PRISMARINE);
-    dyes.put(ModItems.cadColorizerPsi, ModTags.PSIDUST);
+    Map<Item, Tuple<Tag<Item>, String>> dyes = new HashMap<>();
+    dyes.put(ModItems.cadColorizerWhite, new Tuple<>(Tags.Items.DYES_WHITE, "white"));
+    dyes.put(ModItems.cadColorizerOrange, new Tuple<>(Tags.Items.DYES_ORANGE, "orange"));
+    dyes.put(ModItems.cadColorizerMagenta, new Tuple<>(Tags.Items.DYES_MAGENTA, "magenta"));
+    dyes.put(ModItems.cadColorizerLightBlue, new Tuple<>(Tags.Items.DYES_LIGHT_BLUE, "light_blue"));
+    dyes.put(ModItems.cadColorizerYellow, new Tuple<>(Tags.Items.DYES_YELLOW, "yellow"));
+    dyes.put(ModItems.cadColorizerLime, new Tuple<>(Tags.Items.DYES_LIME, "lime"));
+    dyes.put(ModItems.cadColorizerPink, new Tuple<>(Tags.Items.DYES_PINK, "pink"));
+    dyes.put(ModItems.cadColorizerGray, new Tuple<>(Tags.Items.DYES_GRAY, "gray"));
+    dyes.put(ModItems.cadColorizerLightGray, new Tuple<>(Tags.Items.DYES_LIGHT_GRAY, "light_gray"));
+    dyes.put(ModItems.cadColorizerCyan, new Tuple<>(Tags.Items.DYES_CYAN, "cyan"));
+    dyes.put(ModItems.cadColorizerPurple, new Tuple<>(Tags.Items.DYES_PURPLE, "purple"));
+    dyes.put(ModItems.cadColorizerBlue, new Tuple<>(Tags.Items.DYES_BLUE, "blue"));
+    dyes.put(ModItems.cadColorizerBrown, new Tuple<>(Tags.Items.DYES_BROWN, "brown"));
+    dyes.put(ModItems.cadColorizerGreen, new Tuple<>(Tags.Items.DYES_GREEN, "green"));
+    dyes.put(ModItems.cadColorizerRed, new Tuple<>(Tags.Items.DYES_RED, "red"));
+    dyes.put(ModItems.cadColorizerBlack, new Tuple<>(Tags.Items.DYES_BLACK, "black"));
+    dyes.put(ModItems.cadColorizerRainbow, new Tuple<>(Tags.Items.GEMS_PRISMARINE, "rainbow"));
+    dyes.put(ModItems.cadColorizerPsi, new Tuple<>(ModTags.PSIDUST, "psi"));
 
-    for (Map.Entry<Item, Tag<Item>> entry : dyes.entrySet()) {
-      String path = entry.getValue().getId().getPath();
-      String name = path.substring(path.lastIndexOf("/") + 1).toLowerCase();
+    for (Map.Entry<Item, Tuple<Tag<Item>, String>> entry : dyes.entrySet()) {
       ShapedRecipeBuilder.shapedRecipe(entry.getKey()).setGroup("psi:colorizer")
-          .key('I', Tags.Items.INGOTS_IRON).key('G', Tags.Items.GLASS).key('C', entry.getValue())
-          .key('D', ModTags.PSIDUST).patternLine(" D ").patternLine("GCG").patternLine(" I ")
-          .addCriterion("has_psidust", hasPsidust)
-          .build(consumer, MagicalPsi.location("varnish_" + name));
+          .key('I', Tags.Items.INGOTS_IRON).key('G', Tags.Items.GLASS)
+          .key('C', entry.getValue().getA()).key('D', ModTags.PSIDUST).patternLine(" D ")
+          .patternLine("GCG").patternLine(" I ").addCriterion("has_psidust", hasPsidust)
+          .build(consumer, Psi.location("cad_colorizer_" + entry.getValue().getB()));
     }
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.cadColorizerEmpty).setGroup("psi:colorizer")
         .key('I', Tags.Items.INGOTS_IRON).key('G', Tags.Items.GLASS).key('D', ModTags.PSIDUST)
         .patternLine(" D ").patternLine("G G").patternLine(" I ")
         .addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("varnish_empty"));
+        .build(consumer, Psi.location("cad_colorizer_empty"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.spellBullet).addIngredient(ItemTags.LOGS)
         .addIngredient(Items.PAPER).addIngredient(ModTags.PSIDUST)
-        .addCriterion("has_psidust", hasPsidust).build(consumer, MagicalPsi.location("spell_node"));
+        .addCriterion("has_psidust", hasPsidust)
+        .build(consumer, Psi.location("spell_bullet_basic"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.projectileSpellBullet)
         .addIngredient(ItemTags.LOGS).addIngredient(Items.PAPER).addIngredient(ModTags.PSIDUST)
         .addIngredient(Tags.Items.ARROWS).addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("spell_node_projectile"));
+        .build(consumer, Psi.location("spell_bullet_projectile"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.projectileSpellBullet)
         .addIngredient(ModItems.spellBullet).addIngredient(Tags.Items.ARROWS)
         .addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("spell_node_projectile_upgrade"));
+        .build(consumer, Psi.location("spell_bullet_projectile_upgrade"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.loopSpellBullet).addIngredient(ItemTags.LOGS)
         .addIngredient(Items.PAPER).addIngredient(ModTags.PSIDUST).addIngredient(Tags.Items.STRING)
         .addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("spell_node_loop"));
+        .build(consumer, Psi.location("spell_bullet_loopcast"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.loopSpellBullet)
         .addIngredient(ModItems.spellBullet).addIngredient(Tags.Items.STRING)
         .addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("spell_node_loop_upgrade"));
+        .build(consumer, Psi.location("spell_bullet_loopcast_upgrade"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.circleSpellBullet).addIngredient(ItemTags.LOGS)
         .addIngredient(Items.PAPER).addIngredient(ModTags.PSIDUST).addIngredient(Ingredient
         .fromItemListStream(Stream.of(new Ingredient.TagList(Tags.Items.SLIMEBALLS),
             new Ingredient.SingleItemList(new ItemStack(Items.SNOWBALL)))))
         .addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("spell_node_circle"));
+        .build(consumer, Psi.location("spell_bullet_circle"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.circleSpellBullet)
         .addIngredient(ModItems.spellBullet).addIngredient(Ingredient.fromItemListStream(Stream
         .of(new Ingredient.TagList(Tags.Items.SLIMEBALLS),
             new Ingredient.SingleItemList(new ItemStack(Items.SNOWBALL)))))
         .addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("spell_node_circle_upgrade"));
+        .build(consumer, Psi.location("spell_bullet_circle_upgrade"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.grenadeSpellBullet).addIngredient(ItemTags.LOGS)
         .addIngredient(Items.PAPER).addIngredient(ModTags.PSIDUST)
         .addIngredient(Tags.Items.GUNPOWDER).addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("spell_node_grenade"));
+        .build(consumer, Psi.location("spell_bullet_grenade"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.grenadeSpellBullet)
         .addIngredient(ModItems.spellBullet).addIngredient(Tags.Items.GUNPOWDER)
         .addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("spell_node_grenade_upgrade"));
+        .build(consumer, Psi.location("spell_bullet_grenade_upgrade"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.chargeSpellBullet).addIngredient(ItemTags.LOGS)
         .addIngredient(Items.PAPER).addIngredient(ModTags.PSIDUST)
         .addIngredient(Tags.Items.DUSTS_REDSTONE).addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("spell_node_charge"));
+        .build(consumer, Psi.location("spell_bullet_charge"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.chargeSpellBullet)
         .addIngredient(ModItems.spellBullet).addIngredient(Tags.Items.DUSTS_REDSTONE)
         .addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("spell_node_charge_upgrade"));
+        .build(consumer, Psi.location("spell_bullet_charge_upgrade"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.mineSpellBullet).addIngredient(ItemTags.LOGS)
         .addIngredient(Items.PAPER).addIngredient(ModTags.PSIDUST).addIngredient(ItemTags.BUTTONS)
-        .addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("spell_node_mine"));
+        .addCriterion("has_psidust", hasPsidust).build(consumer, Psi.location("spell_bullet_mine"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.mineSpellBullet)
         .addIngredient(ModItems.spellBullet).addIngredient(ItemTags.BUTTONS)
         .addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("spell_node_mine_upgrade"));
+        .build(consumer, Psi.location("spell_bullet_mine_upgrade"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.spellDrive).key('W', ItemTags.LOGS)
         .key('P', Items.PAPER).key('I', ModTags.INGOT_PSIMETAL).key('R', Tags.Items.DUSTS_REDSTONE)
         .patternLine("WIW").patternLine("PRP").patternLine("PIP")
-        .addCriterion("has_psimetal", hasPsimetal).build(consumer, MagicalPsi.location("scroll"));
+        .addCriterion("has_psimetal", hasPsimetal).build(consumer, Psi.location("spell_drive"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.psimetalShovel).key('W', ItemTags.LOGS)
         .key('P', ModTags.INGOT_PSIMETAL).key('G', ModTags.GEM_PSIGEM)
         .key('I', Tags.Items.INGOTS_GOLD).patternLine("GP").patternLine(" W").patternLine(" I")
-        .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("psimetal_shovel"));
+        .addCriterion("has_psimetal", hasPsimetal).build(consumer, Psi.location("psimetal_shovel"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.psimetalPickaxe).key('W', ItemTags.LOGS)
         .key('P', ModTags.INGOT_PSIMETAL).key('G', ModTags.GEM_PSIGEM)
         .key('I', Tags.Items.INGOTS_GOLD).patternLine("PGP").patternLine(" W ").patternLine(" I ")
         .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("psimetal_pickaxe"));
+        .build(consumer, Psi.location("psimetal_pickaxe"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.psimetalAxe).key('W', ItemTags.LOGS)
         .key('P', ModTags.INGOT_PSIMETAL).key('G', ModTags.GEM_PSIGEM)
         .key('I', Tags.Items.INGOTS_GOLD).patternLine("GP").patternLine("PW").patternLine(" I")
-        .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("psimetal_axe"));
+        .addCriterion("has_psimetal", hasPsimetal).build(consumer, Psi.location("psimetal_axe"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.psimetalSword).key('W', ItemTags.LOGS)
         .key('P', ModTags.INGOT_PSIMETAL).key('G', ModTags.GEM_PSIGEM)
         .key('I', Tags.Items.INGOTS_GOLD).patternLine(" P").patternLine("IG").patternLine(" W")
-        .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("psimetal_sword"));
+        .addCriterion("has_psimetal", hasPsimetal).build(consumer, Psi.location("psimetal_sword"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.psimetalExosuitHelmet)
         .key('P', ModTags.INGOT_PSIMETAL).key('G', ModTags.GEM_PSIGEM).patternLine("GPG")
         .patternLine("P P").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("focusing_helmet"));
+        .build(consumer, Psi.location("psimetal_exosuit_helmet"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.psimetalExosuitChestplate)
         .key('P', ModTags.INGOT_PSIMETAL).key('G', ModTags.GEM_PSIGEM).patternLine("P P")
         .patternLine("GPG").patternLine("PPP").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("focusing_chestplate"));
+        .build(consumer, Psi.location("psimetal_exosuit_chestplate"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.psimetalExosuitLeggings)
         .key('P', ModTags.INGOT_PSIMETAL).key('G', ModTags.GEM_PSIGEM).patternLine("GPG")
         .patternLine("P P").patternLine("P P").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("focusing_leggings"));
+        .build(consumer, Psi.location("psimetal_exosuit_leggings"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.psimetalExosuitBoots).key('P', ModTags.INGOT_PSIMETAL)
         .key('G', ModTags.GEM_PSIGEM).patternLine("G G").patternLine("P P")
         .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("focusing_boots"));
+        .build(consumer, Psi.location("psimetal_exosuit_boots"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.detonator).key('P', ModTags.PSIDUST)
         .key('I', Tags.Items.INGOTS_GOLD).key('B', ItemTags.BUTTONS).patternLine(" B ")
         .patternLine("IPI").addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("detonator"));
+        .build(consumer, Psi.location("detonator"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.exosuitController).key('W', ItemTags.LOGS)
         .key('P', Items.PAPER).key('R', Tags.Items.DUSTS_REDSTONE)
         .key('G', Tags.Items.GLASS_COLORLESS).key('I', ModTags.INGOT_PSIMETAL).patternLine("WRW")
         .patternLine("PGP").patternLine("WIW").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("focusing_tablet"));
+        .build(consumer, Psi.location("exosuit_controller"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.vectorRuler).key('D', ModTags.PSIDUST)
         .key('W', ItemTags.LOGS).key('I', Tags.Items.INGOTS_GOLD).patternLine("D").patternLine("W")
         .patternLine("I").addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("vector_rule"));
+        .build(consumer, Psi.location("vector_ruler"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.exosuitSensorLight).key('I', ModTags.INGOT_PSIMETAL)
         .key('R', Tags.Items.INGOTS_GOLD).key('M', Tags.Items.DUSTS_GLOWSTONE).patternLine(" I ")
         .patternLine("IMR").patternLine(" R ").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("focusing_sensor_light"));
+        .build(consumer, Psi.location("exosuit_sensor_light"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.exosuitSensorWater).key('I', ModTags.INGOT_PSIMETAL)
         .key('R', Tags.Items.INGOTS_GOLD).key('M', Tags.Items.GEMS_PRISMARINE).patternLine(" I ")
         .patternLine("IMR").patternLine(" R ").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("focusing_sensor_water"));
+        .build(consumer, Psi.location("exosuit_sensor_water"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.exosuitSensorHeat).key('I', ModTags.INGOT_PSIMETAL)
         .key('R', Tags.Items.INGOTS_GOLD).key('M', Items.FIRE_CHARGE).patternLine(" I ")
         .patternLine("IMR").patternLine(" R ").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("focusing_sensor_heat"));
+        .build(consumer, Psi.location("exosuit_sensor_heat"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.exosuitSensorStress).key('I', ModTags.INGOT_PSIMETAL)
         .key('R', Tags.Items.INGOTS_GOLD).key('M', Items.GLISTERING_MELON_SLICE).patternLine(" I ")
         .patternLine("IMR").patternLine(" R ").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("focusing_sensor_stress"));
+        .build(consumer, Psi.location("exosuit_sensor_stress"));
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.exosuitSensorTrigger).key('I', ModTags.INGOT_PSIMETAL)
         .key('R', Tags.Items.INGOTS_GOLD).key('M', Tags.Items.GUNPOWDER).patternLine(" I ")
         .patternLine("IMR").patternLine(" R ").addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("focusing_sensor_trigger"));
+        .build(consumer, Psi.location("exosuit_sensor_trigger"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.psidustBlock)
         .addIngredient(ModItems.psidust, 9).addCriterion("has_psidust", hasPsidust)
-        .build(consumer, MagicalPsi.location("psidust_block"));
+        .build(consumer, Psi.location("psidust_block_shapeless"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.psimetalBlock)
         .addIngredient(ModItems.psimetal, 9).addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("psimetal_block"));
+        .build(consumer, Psi.location("psimetal_block_shapeless"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.psigemBlock).addIngredient(ModItems.psigem, 9)
-        .addCriterion("has_psigem", hasPsigem).build(consumer, MagicalPsi.location("psigem_block"));
+        .addCriterion("has_psigem", hasPsigem)
+        .build(consumer, Psi.location("psigem_block_shapeless"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.psimetalEbony)
         .addIngredient(ModItems.ebonyPsimetal, 9)
         .addCriterion("has_ebony_psimetal", hasEbonyPsimetal)
-        .build(consumer, MagicalPsi.location("psimetal_ebony_block"));
+        .build(consumer, Psi.location("ebony_block_shapeless"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.psimetalIvory)
         .addIngredient(ModItems.ivoryPsimetal, 9)
         .addCriterion("has_ivory_psimetal", hasIvoryPsimetal)
-        .build(consumer, MagicalPsi.location("psimetal_ivory_block"));
+        .build(consumer, Psi.location("ivory_block_shapeless"));
 
     ShapedRecipeBuilder.shapedRecipe(ModBlocks.psimetalPlateBlack).key('C', ItemTags.COALS)
         .key('I', ModTags.INGOT_PSIMETAL).patternLine(" C ").patternLine("CIC").patternLine(" C ")
         .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("psimetal_plate_black"));
+        .build(consumer, Psi.location("psimetal_plate_black"));
 
     ShapedRecipeBuilder.shapedRecipe(ModBlocks.psimetalPlateWhite).key('C', Tags.Items.GEMS_QUARTZ)
         .key('I', ModTags.INGOT_PSIMETAL).patternLine(" C ").patternLine("CIC").patternLine(" C ")
         .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("psimetal_plate_white"));
+        .build(consumer, Psi.location("psimetal_plate_white"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.psimetalPlateBlackLight)
         .addIngredient(ModBlocks.psimetalPlateBlack).addIngredient(Tags.Items.DUSTS_GLOWSTONE)
         .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("psimetal_plate_black_light"));
+        .build(consumer, Psi.location("psimetal_plate_black_light"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.psimetalPlateWhiteLight)
         .addIngredient(ModBlocks.psimetalPlateWhite).addIngredient(Tags.Items.DUSTS_GLOWSTONE)
         .addCriterion("has_psimetal", hasPsimetal)
-        .build(consumer, MagicalPsi.location("psimetal_plate_white_light"));
+        .build(consumer, Psi.location("psimetal_plate_white_light"));
   }
 
   @Nonnull
