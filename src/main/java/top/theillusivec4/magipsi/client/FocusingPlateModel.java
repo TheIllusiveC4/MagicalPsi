@@ -5,7 +5,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import vazkii.psi.client.model.ModelArmor;
 
-public class ModelFocusingPlate extends ModelArmor {
+public class FocusingPlateModel extends ModelArmor {
 
   private final ModelRenderer helmAnchor;
   private final ModelRenderer helm;
@@ -36,7 +36,7 @@ public class ModelFocusingPlate extends ModelArmor {
   private final ModelRenderer sensor;
   private final ModelRenderer sensorColor;
 
-  public ModelFocusingPlate(EquipmentSlotType slot) {
+  public FocusingPlateModel(EquipmentSlotType slot) {
     super(slot);
 
     textureWidth = 64;

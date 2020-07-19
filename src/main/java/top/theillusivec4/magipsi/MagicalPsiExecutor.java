@@ -17,7 +17,7 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
 import top.theillusivec4.magipsi.client.MagicalPsiProxyPack;
-import top.theillusivec4.magipsi.client.ModelFocusingPlate;
+import top.theillusivec4.magipsi.client.FocusingPlateModel;
 
 public class MagicalPsiExecutor {
 
@@ -53,6 +53,6 @@ public class MagicalPsiExecutor {
   }
 
   public static LazyValue<BipedModel<?>> getArmorModel(EquipmentSlotType slot) {
-    return new LazyValue<>(() -> new ModelFocusingPlate(slot));
+    return new LazyValue<>(() -> new FocusingPlateModel(slot));
   }
 }
