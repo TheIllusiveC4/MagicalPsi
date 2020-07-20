@@ -34,7 +34,7 @@ import vazkii.psi.common.item.base.ModItems;
 public class ClientMagicalPsi {
 
   public static void setupPsiOverrides() {
-    // todo: Make a PR to Psi for this function
+    // todo: Remove when/if Psi implements the PR fix
     ItemColors colors = Minecraft.getInstance().getItemColors();
     colors.register((stack, tintIndex) -> tintIndex < 1 ? -1
             : ((ItemPsimetalExosuitHelmet) stack.getItem()).getColor(stack),
@@ -71,6 +71,7 @@ public class ClientMagicalPsi {
     }
   }
 
+  // todo: Remove when/if Psi implements the PR fix
   public static void setupSensorLayer() {
     EntityRendererManager rendererManager = Minecraft.getInstance().getRenderManager();
     rendererManager.getSkinMap().values().forEach(renderer -> renderer
