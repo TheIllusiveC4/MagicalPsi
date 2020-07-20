@@ -7,7 +7,7 @@ modId="${mod_id}"
 version="${version}"
 displayName="${mod_name}"
 displayURL="${mod_url}"
-authors=["Saiko-Chan", "C4"]
+authors="${mod_author}"
 description='''
 ${mod_description}
 '''
