@@ -32,23 +32,37 @@ public class ServerEventHandler {
     List<ResourcePackInfo> resourcePackInfos = (List<ResourcePackInfo>) resourcepacklist
         .getEnabledPacks();
 
-    if (!resourcePackInfos.isEmpty() && resourcePackInfos.get(0).getName()
-        .equals("mod:" + MagicalPsi.MODID)) {
-      ResourcePackInfo resourcepackinfo = resourcepacklist.getPackInfo("mod:" + LibMisc.MOD_ID);
+    if (!resourcePackInfos.isEmpty()) {
+      boolean misaligned = false;
 
-      if (resourcepackinfo != null) {
-        MagicalPsi.LOGGER.info("Misaligned datapack order detected, reordering...");
-        List<ResourcePackInfo> list = Lists.newArrayList(resourcepacklist.getEnabledPacks());
-        list.remove(resourcepackinfo);
-        resourcepacklist.setEnabledPacks(list);
-        WorldInfo worldinfo = evt.getServer().getWorld(DimensionType.OVERWORLD).getWorldInfo();
-        worldinfo.getEnabledDataPacks().clear();
-        resourcepacklist.getEnabledPacks()
-            .forEach((pack) -> worldinfo.getEnabledDataPacks().add(pack.getName()));
-        worldinfo.getDisabledDataPacks().add(resourcepackinfo.getName());
-        MagicalPsi.LOGGER.info("Datapacks reordered, reloading...");
-        evt.getServer().reload();
-        MagicalPsi.LOGGER.info("Reloading complete.");
+      for (ResourcePackInfo info : resourcePackInfos) {
+        String name = info.getName();
+
+        if (name.equals("mod:" + LibMisc.MOD_ID)) {
+          break;
+        } else if (name.equals("mod:" + MagicalPsi.MODID)) {
+          misaligned = true;
+          break;
+        }
+      }
+
+      if (misaligned) {
+        ResourcePackInfo resourcepackinfo = resourcepacklist.getPackInfo("mod:" + LibMisc.MOD_ID);
+
+        if (resourcepackinfo != null) {
+          MagicalPsi.LOGGER.info("Misaligned datapack order detected, reordering...");
+          List<ResourcePackInfo> list = Lists.newArrayList(resourcepacklist.getEnabledPacks());
+          list.remove(resourcepackinfo);
+          resourcepacklist.setEnabledPacks(list);
+          WorldInfo worldinfo = evt.getServer().getWorld(DimensionType.OVERWORLD).getWorldInfo();
+          worldinfo.getEnabledDataPacks().clear();
+          resourcepacklist.getEnabledPacks()
+              .forEach((pack) -> worldinfo.getEnabledDataPacks().add(pack.getName()));
+          worldinfo.getDisabledDataPacks().add(resourcepackinfo.getName());
+          MagicalPsi.LOGGER.info("Datapacks reordered, reloading...");
+          evt.getServer().reload();
+          MagicalPsi.LOGGER.info("Reloading complete.");
+        }
       }
     }
   }
