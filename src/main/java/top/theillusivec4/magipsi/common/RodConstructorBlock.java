@@ -22,9 +22,9 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import vazkii.psi.common.block.BlockCADAssembler;
 
-public class ConstructorBlock extends BlockCADAssembler {
+public class RodConstructorBlock extends BlockCADAssembler {
 
-  public ConstructorBlock(Properties props) {
+  public RodConstructorBlock(Properties props) {
     super(props);
   }
 

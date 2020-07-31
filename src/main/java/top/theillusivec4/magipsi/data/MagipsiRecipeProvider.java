@@ -32,7 +32,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.Tuple;
 import net.minecraftforge.common.Tags;
-import top.theillusivec4.magipsi.common.MagipsiBlocks;
 import vazkii.psi.common.Psi;
 import vazkii.psi.common.block.base.ModBlocks;
 import vazkii.psi.common.item.base.ModItems;
@@ -56,12 +55,12 @@ public class MagipsiRecipeProvider extends RecipeProvider {
     ICriterionInstance hasIvoryPsimetal = hasItem(ModTags.INGOT_IVORY_PSIMETAL);
     ICriterionInstance hasPsidust = hasItem(ModTags.PSIDUST);
 
-    ShapedRecipeBuilder.shapedRecipe(MagipsiBlocks.CONSTRUCTOR).key('G', Tags.Items.INGOTS_GOLD)
+    ShapedRecipeBuilder.shapedRecipe(ModBlocks.cadAssembler).key('G', Tags.Items.INGOTS_GOLD)
         .key('W', ItemTags.LOGS).key('P', Blocks.PISTON).patternLine("GWG").patternLine("WPW")
         .patternLine(" G ").addCriterion("has_gold", hasGold)
         .build(consumer, Psi.location("assembler"));
 
-    ShapedRecipeBuilder.shapedRecipe(MagipsiBlocks.INSCRIBER).key('G', Tags.Items.INGOTS_GOLD)
+    ShapedRecipeBuilder.shapedRecipe(ModBlocks.programmer).key('G', Tags.Items.INGOTS_GOLD)
         .key('M', Items.MAP).key('W', ItemTags.LOGS).key('D', ModTags.PSIDUST).patternLine("WMW")
         .patternLine("WDW").patternLine("G G").addCriterion("has_psidust", hasPsidust)
         .build(consumer, Psi.location("programmer"));

@@ -23,6 +23,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import top.theillusivec4.magipsi.client.ClientMagicalPsi;
 import top.theillusivec4.magipsi.client.proxy.MagipsiExecutor;
+import top.theillusivec4.magipsi.common.PsiOverride;
 import top.theillusivec4.magipsi.server.ServerEventHandler;
 
 @Mod(MagicalPsi.MODID)
@@ -33,6 +34,7 @@ public class MagicalPsi {
 
   public MagicalPsi() {
     DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> MagipsiExecutor::new);
+    PsiOverride.setup();
     MinecraftForge.EVENT_BUS.register(new ServerEventHandler());
   }
 

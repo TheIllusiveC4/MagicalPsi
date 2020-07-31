@@ -14,7 +14,6 @@ package top.theillusivec4.magipsi.common;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -37,9 +36,6 @@ public class InscriberBlock extends BlockProgrammer {
 
   public InscriberBlock(Properties props) {
     super(props);
-    this.setDefaultState(
-        (this.getStateContainer().getBaseState()).with(HORIZONTAL_FACING, Direction.NORTH)
-            .with(ENABLED, false));
   }
 
   @Override
