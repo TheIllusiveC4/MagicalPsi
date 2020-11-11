@@ -14,13 +14,12 @@ package top.theillusivec4.magipsi;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.network.FMLNetworkConstants;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
@@ -42,20 +41,11 @@ public class MagicalPsi {
     MinecraftForge.EVENT_BUS.register(new ServerEventHandler());
     ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST,
         () -> Pair.of(() -> FMLNetworkConstants.IGNORESERVERONLY, (a, b) -> true));
+    FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
   }
 
-  @Mod.EventBusSubscriber(modid = MagicalPsi.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
-  public static class Client {
-
-    @SubscribeEvent
-    public static void clientSetup(final FMLClientSetupEvent evt) {
-      ClientMagicalPsi.setupPsiOverrides();
-    }
-
-    @SubscribeEvent
-    public static void postSetup(FMLLoadCompleteEvent evt) {
-      ClientMagicalPsi.setupSensorLayer();
-    }
+  private void clientSetup(final FMLClientSetupEvent evt) {
+    ClientMagicalPsi.setupPsiOverrides();
   }
 }
 
