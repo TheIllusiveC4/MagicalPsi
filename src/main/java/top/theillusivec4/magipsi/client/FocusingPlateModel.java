@@ -10,7 +10,7 @@
  * If not, see <https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
  */
 
-package top.theillusivec4.magipsi.client.render;
+package top.theillusivec4.magipsi.client;
 
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.LivingEntity;

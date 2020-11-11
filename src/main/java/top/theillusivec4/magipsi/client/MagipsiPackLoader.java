@@ -1,4 +1,4 @@
-package top.theillusivec4.magipsi.client.proxy;
+package top.theillusivec4.magipsi.client;
 
 import java.util.List;
 import net.minecraft.client.Minecraft;
@@ -8,20 +8,21 @@ import net.minecraft.resources.ResourcePackInfo;
 import net.minecraft.resources.ResourcePackList;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
+import net.minecraftforge.fml.packs.ModFileResourcePack;
 import top.theillusivec4.magipsi.MagicalPsi;
 
-public class MagipsiExecutor {
+public class MagipsiPackLoader {
 
   private static ResourcePack resourcePack;
 
   @SuppressWarnings("ConstantConditions")
-  public MagipsiExecutor() {
+  public MagipsiPackLoader() {
     List<ModFileInfo> modFileInfos = ModList.get().getModFiles();
 
     for (ModFileInfo modFileInfo : modFileInfos) {
 
       if (modFileInfo.getMods().get(0).getModId().equals(MagicalPsi.MODID)) {
-        resourcePack = new MagipsiProxyPack(modFileInfo.getFile());
+        resourcePack = new ModFileResourcePack(modFileInfo.getFile());
         break;
       }
     }
