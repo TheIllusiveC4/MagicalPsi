@@ -13,7 +13,6 @@
 package top.theillusivec4.magipsi;
 
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -26,8 +25,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import top.theillusivec4.magipsi.client.ClientMagicalPsi;
 import top.theillusivec4.magipsi.client.proxy.MagipsiExecutor;
-import top.theillusivec4.magipsi.common.PsiOverride;
-import top.theillusivec4.magipsi.server.ServerEventHandler;
 
 @Mod(MagicalPsi.MODID)
 public class MagicalPsi {
@@ -37,8 +34,6 @@ public class MagicalPsi {
 
   public MagicalPsi() {
     DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> MagipsiExecutor::new);
-    PsiOverride.setup();
-    MinecraftForge.EVENT_BUS.register(new ServerEventHandler());
     ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST,
         () -> Pair.of(() -> FMLNetworkConstants.IGNORESERVERONLY, (a, b) -> true));
     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);

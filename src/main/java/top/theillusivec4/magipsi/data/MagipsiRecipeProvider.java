@@ -28,8 +28,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.util.Tuple;
 import net.minecraftforge.common.Tags;
 import vazkii.psi.common.Psi;
@@ -162,7 +162,7 @@ public class MagipsiRecipeProvider extends RecipeProvider {
         .addCriterion("has_psigem", hasPsigem)
         .build(consumer, Psi.location("cad_battery_ultradense"));
 
-    Map<Item, Tuple<Tag<Item>, String>> dyes = new HashMap<>();
+    Map<Item, Tuple<ITag<Item>, String>> dyes = new HashMap<>();
     dyes.put(ModItems.cadColorizerWhite, new Tuple<>(Tags.Items.DYES_WHITE, "white"));
     dyes.put(ModItems.cadColorizerOrange, new Tuple<>(Tags.Items.DYES_ORANGE, "orange"));
     dyes.put(ModItems.cadColorizerMagenta, new Tuple<>(Tags.Items.DYES_MAGENTA, "magenta"));
@@ -182,7 +182,7 @@ public class MagipsiRecipeProvider extends RecipeProvider {
     dyes.put(ModItems.cadColorizerRainbow, new Tuple<>(Tags.Items.GEMS_PRISMARINE, "rainbow"));
     dyes.put(ModItems.cadColorizerPsi, new Tuple<>(ModTags.PSIDUST, "psi"));
 
-    for (Map.Entry<Item, Tuple<Tag<Item>, String>> entry : dyes.entrySet()) {
+    for (Map.Entry<Item, Tuple<ITag<Item>, String>> entry : dyes.entrySet()) {
       ShapedRecipeBuilder.shapedRecipe(entry.getKey()).setGroup("psi:colorizer")
           .key('I', Tags.Items.INGOTS_IRON).key('G', Tags.Items.GLASS)
           .key('C', entry.getValue().getA()).key('D', ModTags.PSIDUST).patternLine(" D ")
@@ -203,11 +203,11 @@ public class MagipsiRecipeProvider extends RecipeProvider {
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.projectileSpellBullet)
         .addIngredient(ItemTags.LOGS).addIngredient(Items.PAPER).addIngredient(ModTags.PSIDUST)
-        .addIngredient(Tags.Items.ARROWS).addCriterion("has_psidust", hasPsidust)
+        .addIngredient(ItemTags.ARROWS).addCriterion("has_psidust", hasPsidust)
         .build(consumer, Psi.location("spell_bullet_projectile"));
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.projectileSpellBullet)
-        .addIngredient(ModItems.spellBullet).addIngredient(Tags.Items.ARROWS)
+        .addIngredient(ModItems.spellBullet).addIngredient(ItemTags.ARROWS)
         .addCriterion("has_psidust", hasPsidust)
         .build(consumer, Psi.location("spell_bullet_projectile_upgrade"));
 

@@ -172,7 +172,7 @@ public class FocusingPlateModel extends ModelArmor {
 
   @Override
   public void setRotationAngles(LivingEntity entity, float limbSwing, float limbSwingAmount,
-      float ageInTicks, float netHeadYaw, float headPitch) {
+                                float ageInTicks, float netHeadYaw, float headPitch) {
     helm.showModel = slot == EquipmentSlotType.HEAD;
     body.showModel = slot == EquipmentSlotType.CHEST;
     armR.showModel = slot == EquipmentSlotType.CHEST;
