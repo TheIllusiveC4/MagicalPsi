@@ -7,6 +7,9 @@
     "BlockProgrammerMixin",
     "BlockCADAssemblerMixin"
   ],
+  "client": [
+    "ItemPsimetalArmorMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   },
