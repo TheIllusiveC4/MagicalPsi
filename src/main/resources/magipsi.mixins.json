@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "top.theillusivec4.magipsi.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "magipsi.refmap.json",
+  "mixins": [
+    "BlockProgrammerMixin",
+    "BlockCADAssemblerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}
