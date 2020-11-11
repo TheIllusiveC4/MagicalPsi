@@ -74,8 +74,8 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${version_forge}"
-    compile fg.deobf("vazkii.psi:Psi:r1.2-82.241")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.15.2-1.2-35.2")
+    compile fg.deobf("vazkii.psi:Psi:${version_psi}")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${version_patchouli}")
 }
 
 sourceSets {
