@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourcePack;
 import net.minecraft.resources.ResourcePackInfo;
 import net.minecraft.resources.ResourcePackList;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.moddiscovery.ModFile;
 import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
 import net.minecraftforge.fml.packs.ModFileResourcePack;
 import top.theillusivec4.magipsi.MagicalPsi;
@@ -22,7 +23,7 @@ public class MagipsiPackLoader {
     for (ModFileInfo modFileInfo : modFileInfos) {
 
       if (modFileInfo.getMods().get(0).getModId().equals(MagicalPsi.MODID)) {
-        resourcePack = new ModFileResourcePack(modFileInfo.getFile());
+        resourcePack = new MagicalPsiResourcePack(modFileInfo.getFile());
         break;
       }
     }
@@ -34,6 +35,18 @@ public class MagipsiPackLoader {
           ResourcePackInfo
               .createResourcePack(MagicalPsi.MODID, true, () -> resourcePack, infoFactory,
                   ResourcePackInfo.Priority.TOP, IPackNameDecorator.PLAIN)));
+    }
+  }
+
+  private static class MagicalPsiResourcePack extends ModFileResourcePack {
+
+    public MagicalPsiResourcePack(ModFile modFile) {
+      super(modFile);
+    }
+
+    @Override
+    public String getName() {
+      return "Magical Psi";
     }
   }
 }
