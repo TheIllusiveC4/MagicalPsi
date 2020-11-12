@@ -24,6 +24,7 @@ Thumbs.db
 /*.iws
 /*.iml
 /classes
+/logs
 
 ## Private Stuffs
 /private.properties
