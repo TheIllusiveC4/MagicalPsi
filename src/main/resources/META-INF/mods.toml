@@ -27,6 +27,6 @@ ${mod_description}
 [[dependencies.magipsi]]
     modId="psi"
     mandatory=true
-    versionRange="[1.16-88,)"
+    versionRange="[1.16-95,)"
     ordering="NONE"
     side="BOTH"
